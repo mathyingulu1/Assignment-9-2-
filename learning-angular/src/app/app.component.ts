@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Food } from 'src/helper-files/Food';
+import { Food } from '../helper-files/Food';
 
 @Component({
   selector: 'app-root',
