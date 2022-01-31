@@ -25,23 +25,9 @@ export class AppComponent {
     };
     name = 10;
 
-    let apple: Food;
-    apple = {
-      id: 0,
-      type: "fruit",
-      imageUrl: "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202201181338",
-      body: "An apple a day is delicious",
-      taste: "Sweet"
-    };
 
-    apple.type = "not actually a fruit";
-    // apple.id = 10;
-
-    this.processFood(apple);
-    // apple = "Apple";
-
-    this.lotsOfFood = new FoodList(apple);
-    console.log(this.lotsOfFood.items);
+    // this.lotsOfFood = new FoodList(apple);
+    // console.log(this.lotsOfFood.items);
     // this.lotsOfFood.items = [];
 
     // let anotherList: FoodList;
