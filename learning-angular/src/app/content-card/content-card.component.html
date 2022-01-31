@@ -1,1 +1,6 @@
-<p>content-card works!</p>
+<div class="type">{{ foodItem ? foodItem.type : "" }}</div>
+<div class="body">{{ foodItem ? foodItem.body : "" }}</div>
+<div><img [src]="foodItem ? foodItem.imageUrl : ''"></div>
+<div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div>
+<div class="name">{{ foodItem ? foodItem.name : "" }}</div>
+<!-- <span [innerHTML]="returnhtml()"></span> -->

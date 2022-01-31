@@ -1,2 +1,5 @@
 This is the app component
-<app-content-card></app-content-card>
+<app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
+    [class.is-last]="isLast">
+
+</app-content-card>
