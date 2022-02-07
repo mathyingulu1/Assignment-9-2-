@@ -9,23 +9,27 @@ import { Food } from '../helper-files/Food';
 export class AppComponent {
   title: string;
   bunchOfFood: Food[];
+  birthday: Date;
 
   constructor() {
+    this.birthday = new Date();
+
     this.bunchOfFood = [{
       id: 0,
       type: "fruit",
       name: 'Apple',
       imageUrl: "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202201181338",
       body: "An apple a day is delicious",
-      taste: "Sweet"
+      taste: "Sweet",
+      tags: ["mutsu"]
     },
     {
       id: 1,
       name: 'Sushi',
-      type: 'dinner',
       imageUrl: "",
       body: "Everybody loves sushi, apparently",
-      taste: 'general'
+      taste: 'general',
+      tags: ["sashimi", "hand roll"]
     },
     {
       id: 2,

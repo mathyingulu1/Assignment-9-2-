@@ -1,4 +1,4 @@
-<div class="type">{{ foodItem?.type }}</div>
+<div class="type">{{ foodItem | defaultType }}</div>
 <div class="body">{{ foodItem ? foodItem.body : "" }}</div>
 <div><img [src]="foodItem ? foodItem.imageUrl : ''"></div>
 <div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div>

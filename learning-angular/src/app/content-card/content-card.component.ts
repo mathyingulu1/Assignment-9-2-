@@ -7,9 +7,11 @@ import { Food } from '../../helper-files/Food';
   styleUrls: ['./content-card.component.scss']
 })
 export class ContentCardComponent implements OnInit {
-  @Input() foodItem?: Food;
+  @Input() foodItem: Food;
 
-  constructor() { }
+  constructor() {
+    this.foodItem = { id: 0, name: '', body: '', imageUrl: '' };
+  }
 
   ngOnInit(): void {
 

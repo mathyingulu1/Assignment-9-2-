@@ -10,7 +10,10 @@
     Change the title here: <input [(ngModel)]="title">
     Title is set to : <strong>{{ title }}</strong>
 </div>
-<app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
-    [class.is-last]="isLast">
-
-</app-content-card>
+<div>
+    <h3>Working with pipes</h3>
+    <div>{{ title | uppercase }}</div>
+    <div>{{ birthday | date | uppercase }}</div>
+</div>
+<app-content-card *ngFor="let item of (bunchOfFood | contentTagged); index as i; last as isLast" [foodItem]="item"
+    [class.is-last]="isLast"></app-content-card>
