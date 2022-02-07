@@ -1,4 +1,15 @@
-This is the app component
+<!-- This is the app component -->
+<div>
+    <h3>Template reference variable and event binding</h3>
+    My Card Name input <input #cardName>
+    <button (click)="updatePage(cardName.value)">Submit</button>
+    {{ cardName.value }}
+</div>
+<div>
+    <h3>Two Way Binding</h3>
+    Change the title here: <input [(ngModel)]="title">
+    Title is set to : <strong>{{ title }}</strong>
+</div>
 <app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
     [class.is-last]="isLast">
 

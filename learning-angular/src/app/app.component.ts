@@ -35,7 +35,7 @@ export class AppComponent {
       body: 'The basis of many good dishes'
     }];
 
-    this.title = '<em>Header 1</em>';
+    this.title = 'Header 1';
     // let name: string; // sets the type explicitly to a string
     // name = 'Peter';
 
@@ -51,6 +51,14 @@ export class AppComponent {
 
 
 
+  }
+
+  updatePage(cardNameOnTheTypescriptSide: string): void {
+    console.log("We did it, ", cardNameOnTheTypescriptSide);
+    cardNameOnTheTypescriptSide = "somethingelse"
+    console.log("after I tried changing it, ", cardNameOnTheTypescriptSide);
+
+    this.title = "Changed it from the submit button";
   }
 
 
