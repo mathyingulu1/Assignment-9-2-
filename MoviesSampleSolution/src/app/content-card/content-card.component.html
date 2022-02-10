@@ -1,0 +1,20 @@
+<h3 class="title">
+    {{ movie?.title }}
+</h3>
+<img (click)="imageClicked()" *ngIf="movie?.imgURL" class="image" [src]="movie?.imgURL">
+<p>
+    {{ movie?.description }}
+</p>
+<div class="meta-data">
+    <div class="creator">
+        {{ movie?.creator}}
+    </div>
+    <div *ngIf="movie?.type" class="movie?.type">
+        {{ movie?.type }}
+    </div>
+    <div class="tags" *ngIf="movie?.tags">
+        <span class="tag" *ngFor="let tag of movie?.tags">
+            #{{ tag }}
+        </span>
+    </div>
+</div>

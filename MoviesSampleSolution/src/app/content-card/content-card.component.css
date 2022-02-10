@@ -1,0 +1,22 @@
+:host{
+    border: 1px solid #0000ff;
+    display: block;
+    margin: 16px auto;
+    padding: 8px;
+    width: 500px;
+    text-align: center;
+}
+:host.first-movie{
+    border: 2px solid #000;
+}
+.image{
+    width: 300px;
+}
+.tag{
+    display: inline-block;
+    border-radius: 10px;
+    border: 1px solid #ff0000;
+    background-color:aqua;
+    margin: 8px;
+    padding: 8px;
+}

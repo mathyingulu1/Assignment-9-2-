@@ -1,1 +1,2 @@
-<p>content-list works!</p>
+<app-content-card *ngFor="let item of movieList; first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
+    [movie]="item"></app-content-card>
