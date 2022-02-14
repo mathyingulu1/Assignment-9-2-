@@ -9,5 +9,8 @@
     </div>
     <!-- <div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div> -->
     <div class="name" [style.color]='specialColor'>{{ foodItem.name }}</div>
+    <div class="tags">
+        <span appHighlight colour="dodgerblue" class="tag" *ngFor="let tag of foodItem.tags"> {{ tag }}</span>
+    </div>
     <!-- <span [innerHTML]="returnhtml()"></span> -->
 </div>

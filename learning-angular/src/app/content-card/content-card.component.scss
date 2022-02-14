@@ -9,6 +9,16 @@
     img{
         width: 200px;
     }
+    .tags{
+
+    }
+    .tag{
+        display: inline-block;
+        margin: 8px 16px;
+        padding: 8px;
+        border-radius: 20px;
+        border: 1px dotted #000;
+    }
 }
 :host.is-last{
     background-color:#00ff00;
