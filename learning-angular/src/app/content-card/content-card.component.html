@@ -1,6 +1,13 @@
-<div class="type">{{ foodItem | defaultType }}</div>
-<div class="body">{{ foodItem ? foodItem.body : "" }}</div>
-<div><img [src]="foodItem ? foodItem.imageUrl : ''"></div>
-<div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div>
-<div class="name">{{ foodItem ? foodItem.name : "" }}</div>
-<!-- <span [innerHTML]="returnhtml()"></span> -->
+<div *ngIf="foodItem">
+    <div class="type">{{ foodItem | defaultType }}</div>
+    <div appHighlight colour='magenta' class="body">{{ foodItem.body }}</div>
+    <div><img [src]="foodItem ? foodItem.imageUrl : ''"></div>
+    <div [ngSwitch]='foodItem.taste'>
+        <span *ngSwitchCase='"Sweet"'>Super Sweet food</span>
+        <span *ngSwitchCase='"general"'>Very bland taste</span>
+        <span *ngSwitchDefault>Tasteless</span>
+    </div>
+    <!-- <div *ngif="foodItem ? foodItem.taste: ''" class="taste">{{ foodItem ? foodItem.taste : "" }}</div> -->
+    <div class="name" [style.color]='specialColor'>{{ foodItem.name }}</div>
+    <!-- <span [innerHTML]="returnhtml()"></span> -->
+</div>

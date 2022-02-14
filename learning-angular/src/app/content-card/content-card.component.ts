@@ -8,6 +8,7 @@ import { Food } from '../../helper-files/Food';
 })
 export class ContentCardComponent implements OnInit {
   @Input() foodItem: Food;
+  specialColor = 'blue';
 
   constructor() {
     this.foodItem = { id: 0, name: '', body: '', imageUrl: '' };
