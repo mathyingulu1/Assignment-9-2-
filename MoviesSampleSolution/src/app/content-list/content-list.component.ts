@@ -7,7 +7,8 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-list.component.css']
 })
 export class ContentListComponent implements OnInit {
-
+  searchMessage: string = "";
+  searchFlag: boolean = false;
   movieList: Content[];
   constructor() {
     this.movieList = [{
@@ -53,10 +54,30 @@ export class ContentListComponent implements OnInit {
       creator: "Ramin Bahrani",
       imgURL: "",
       type: "drama"
+    },{
+      id: 6,
+      title: "IT",
+      description: "It's a movie about a clown",
+      creator: "Andrés Muschietti",
+      imgURL: ""
     }];
   }
 
   ngOnInit(): void {
   }
 
+  checkForTitle(searchValue: string): void{
+    let searchList = this.movieList.filter(c => c.title == searchValue);
+    if (searchList.length > 0){
+      this.searchMessage  = "Found the movie!";
+      this.searchFlag = true;
+    }
+    else{
+      this.searchMessage  = "No movie with that title";
+      this.searchFlag = false;
+    }
+  }
+  donothing(){
+
+  }
 }

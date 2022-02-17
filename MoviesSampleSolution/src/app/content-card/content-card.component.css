@@ -9,6 +9,22 @@
 :host.first-movie{
     border: 2px solid #000;
 }
+:host.notype{
+  background-color: darksalmon;
+}
+:host.drama{
+  background-color: dodgerblue;
+}
+:host.sci-fi{
+  background-color: chartreuse;
+}
+:host.cartoon{
+  background-color: grey;
+}
+:host.found{
+  border-color: green;
+  border-width: 5px;
+}
 .image{
     width: 300px;
 }
