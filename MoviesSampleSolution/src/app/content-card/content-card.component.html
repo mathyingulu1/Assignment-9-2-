@@ -2,6 +2,8 @@
     {{ movie?.title }}
 </h3>
 <img (click)="imageClicked()" *ngIf="movie?.imgURL" class="image" [src]="movie?.imgURL">
+<img (click)="imageClicked()" *ngIf="!movie?.imgURL" class="image"
+    src="https://cdn.freebiesupply.com/images/thumbs/2x/imdb-logo.png"> <!-- default image -->
 <p>
     {{ movie?.description }}
 </p>
@@ -9,11 +11,11 @@
     <div class="creator">
         {{ movie?.creator}}
     </div>
-    <div *ngIf="movie?.type" class="movie?.type">
+    <div appHoverAffect elementType="type" *ngIf="movie?.type" class="movie?.type">
         {{ movie?.type }}
     </div>
     <div class="tags" *ngIf="movie?.tags">
-        <span class="tag" *ngFor="let tag of movie?.tags">
+        <span appHoverAffect elementType="tag" class="tag" *ngFor="let tag of movie?.tags">
             #{{ tag }}
         </span>
     </div>

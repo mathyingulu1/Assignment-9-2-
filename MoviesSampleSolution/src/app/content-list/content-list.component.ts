@@ -24,7 +24,7 @@ export class ContentListComponent implements OnInit {
       description: "Jack black if he was a panda",
       creator: "John Stevenson",
       imgURL: "https://m.media-amazon.com/images/M/MV5BODJkZTZhMWItMDI3Yy00ZWZlLTk4NjQtOTI1ZjU5NjBjZTVjXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg",
-      type: "cartoon"
+      // type: "cartoon"
     }, {
       id: 2,
       title: "Avengers",
@@ -54,7 +54,7 @@ export class ContentListComponent implements OnInit {
       creator: "Ramin Bahrani",
       imgURL: "",
       type: "drama"
-    },{
+    }, {
       id: 6,
       title: "IT",
       description: "It's a movie about a clown",
@@ -66,18 +66,18 @@ export class ContentListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  checkForTitle(searchValue: string): void{
+  checkForTitle(searchValue: string): void {
     let searchList = this.movieList.filter(c => c.title == searchValue);
-    if (searchList.length > 0){
-      this.searchMessage  = "Found the movie!";
+    if (searchList.length > 0) {
+      this.searchMessage = "Found the movie!";
       this.searchFlag = true;
     }
-    else{
-      this.searchMessage  = "No movie with that title";
+    else {
+      this.searchMessage = "No movie with that title";
       this.searchFlag = false;
     }
   }
-  donothing(){
+  donothing() {
 
   }
 }

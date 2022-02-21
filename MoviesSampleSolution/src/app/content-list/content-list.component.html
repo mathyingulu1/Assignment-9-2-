@@ -3,17 +3,25 @@
   <button (click)="checkForTitle(search.value)">Check For Title</button>
   <h4 class="success" *ngIf="searchFlag">Title found</h4>
   <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
-<!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
+  <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
 </div>
 
-<app-content-card *ngFor="let item of (movieList | contentTypeFilter); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-    [movie]="item" class="notype" [class.found]="item.title == search.value"></app-content-card>
+<app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="notype" [class.found]="item.title == search.value">
+</app-content-card>
 
-<app-content-card *ngFor="let item of (movieList | contentTypeFilter: 'drama'); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-                  [movie]="item" class="drama" [class.found]="item.title == search.value"></app-content-card>
+<app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter: 'drama'); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="drama" [class.found]="item.title == search.value">
+</app-content-card>
 
-<app-content-card *ngFor="let item of (movieList | contentTypeFilter: 'sci-fi'); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-                  [movie]="item" class="sci-fi" [class.found]="item.title == search.value"></app-content-card>
+<app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter: 'sci-fi'); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="sci-fi" [class.found]="item.title == search.value">
+</app-content-card>
 
-<app-content-card *ngFor="let item of (movieList | contentTypeFilter: 'cartoon'); first as isFirstMovieOnList" [class.first-movie]="isFirstMovieOnList"
-                  [movie]="item" class="cartoon" [class.found]="item.title == search.value"></app-content-card>
+<!-- <app-content-card appHoverAffect elementType="card" [firstOrLast]="isFirstMovieOnList || isLast"
+  *ngFor="let item of (movieList | contentTypeFilter: 'cartoon'); first as isFirstMovieOnList; last as isLast"
+  [class.first-movie]="isFirstMovieOnList" [movie]="item" class="cartoon" [class.found]="item.title == search.value">
+</app-content-card> -->
