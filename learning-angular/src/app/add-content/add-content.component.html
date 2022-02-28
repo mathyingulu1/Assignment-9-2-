@@ -1,0 +1,19 @@
+<div>
+    id: <input #id>
+</div>
+<div>
+    name: <input #name>
+</div>
+
+<div>
+    image: <input #imageUrl>
+</div>
+<div>
+    body: <input #body>
+</div>
+<div>
+    tags: <input #tags>
+</div>
+<div>
+    <button (click)="addFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Add Food Item</button>
+</div>

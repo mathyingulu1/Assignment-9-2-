@@ -1,5 +1,22 @@
-<!-- This is the app component -->
+<app-add-content (newFoodEvent)="addFoodToList($event)"></app-add-content>
+<!-- <div>
+    <h1>Without pipe</h1>
+    <app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
+        [class.is-last]="isLast"></app-content-card>
+</div> -->
+
 <div>
+    <h1>With pipe</h1>
+    <app-content-card *ngFor="let item of (bunchOfFood | contentTagged); index as i; last as isLast" [foodItem]="item"
+        [class.is-last]="isLast"></app-content-card>
+</div>
+<!-- DO NOT DO IT THIS WAY LISTED BELOW -->
+<!-- <app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
+    [foodList]="bunchOfFood" [class.is-last]="isLast"></app-content-card> -->
+
+
+<!-- This is the app component -->
+<!-- <div>
     <h3>Template reference variable and event binding</h3>
     My Card Name input <input #cardName>
     <button (click)="updatePage(cardName.value)">Submit</button>
@@ -14,6 +31,4 @@
     <h3>Working with pipes</h3>
     <div>{{ title | uppercase }}</div>
     <div>{{ birthday | date | uppercase }}</div>
-</div>
-<app-content-card *ngFor="let item of (bunchOfFood | contentTagged); index as i; last as isLast" [foodItem]="item"
-    [class.is-last]="isLast"></app-content-card>
+</div> -->

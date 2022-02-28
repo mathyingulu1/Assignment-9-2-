@@ -8,13 +8,24 @@ import { Food } from '../../helper-files/Food';
 })
 export class ContentCardComponent implements OnInit {
   @Input() foodItem: Food;
+  // @Input() foodList: Food[];
   specialColor = 'blue';
 
   constructor() {
+    // this.foodList = [];
     this.foodItem = { id: 0, name: '', body: '', imageUrl: '' };
   }
 
   ngOnInit(): void {
+    // console.log("Food list passed to the child ", this.foodList);
+    // this.foodList.push({
+    //   id: 0,
+    //   type: "vegetable",
+    //   name: 'Broccoli',
+    //   imageUrl: "",
+    //   body: "An broccoli a day is useful",
+    //   taste: "water"
+    // });
 
   }
   // returnhtml(): string {
