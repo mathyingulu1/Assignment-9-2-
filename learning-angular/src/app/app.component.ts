@@ -65,7 +65,7 @@ export class AppComponent {
     let ourPromise = new Promise((success, fail) => {
       let testPass = false;
       if (testPass) {
-        success("Success was achieved!");
+        success("Victory!");
       }
       else {
         fail("Failure :(");
