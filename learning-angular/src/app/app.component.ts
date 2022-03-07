@@ -1,43 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Food } from '../helper-files/Food';
+import { FoodService } from './services/food.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string;
   bunchOfFood: Food[];
   birthday: Date;
 
-  constructor() {
+  constructor(private foodService: FoodService) {
     this.birthday = new Date();
 
-    this.bunchOfFood = [{
-      id: 0,
-      type: "fruit",
-      name: 'Apple',
-      imageUrl: "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202201181338",
-      body: "An apple a day is delicious",
-      taste: "Sweet",
-      tags: ["mutsu"]
-    },
-    {
-      id: 1,
-      name: 'Sushi',
-      imageUrl: "",
-      body: "Everybody loves sushi, apparently",
-      taste: 'general',
-      tags: ["sashimi", "hand roll"]
-    },
-    {
-      id: 2,
-      name: 'Potato',
-      type: 'vegetable',
-      imageUrl: '',
-      body: 'The basis of many good dishes'
-    }];
+    this.bunchOfFood = [];
 
     this.title = 'Header 1';
     // let name: string; // sets the type explicitly to a string
@@ -106,6 +84,24 @@ export class AppComponent {
       console.log("Second value from the getAllTheStuff method: ", value[1]);
     });
 
+  }
+
+  ngOnInit(): void {
+    // synchronous call, this isn't real world for retrieving data
+    // this.bunchOfFood = this.foodService.getContent();
+
+    // asynchronous call, using an arrow function
+    this.foodService.getContentObs().subscribe(foodArray => this.bunchOfFood = foodArray);
+
+    // asynchronous call, using a larger structured arrow function, which effectively works the same
+    this.foodService.getContentObs().subscribe(foodArray => {
+      return this.bunchOfFood = foodArray; // access bunch of food in the AppComponent object scope
+    });
+
+    // asynchronous call, not using an arrow function
+    // this.foodService.getContentObs().subscribe(function (foodArray) {
+    //   this.bunchOfFood = foodArray; // can't use the keyword this, because it tries to access values in this functions scope, not the object scope
+    // });
   }
 
   updatePage(cardNameOnTheTypescriptSide: string): void {
