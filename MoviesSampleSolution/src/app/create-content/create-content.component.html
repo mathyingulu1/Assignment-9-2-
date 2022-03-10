@@ -1,0 +1,25 @@
+<div>
+    ID: <input #id>
+</div>
+<div>
+    Title: <input #title>
+</div>
+
+<div>
+    Image: <input #imgURL>
+</div>
+<div>
+    description: <input #description>
+</div>
+<div>
+    Type: <input #type>
+</div>
+<div>
+    Creator: <input #creator>
+</div>
+<div>
+    Tags: <input #tags>
+</div>
+<div>
+    <button (click)="addContentFromChild(id.value, title.value, imgURL.value, description.value, type.value, creator.value, tags.value)">Add Food Item</button>
+</div>
