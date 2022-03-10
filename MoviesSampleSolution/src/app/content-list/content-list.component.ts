@@ -77,7 +77,10 @@ export class ContentListComponent implements OnInit {
       this.searchFlag = false;
     }
   }
-  donothing() {
-
+  addContentToParent(contentFromChild: Content) {
+    console.log("got to the parent", contentFromChild);
+    this.movieList.push(contentFromChild);
+    console.log("what's actually in the movie list? ", this.movieList);
+    this.movieList = [...this.movieList]; //clone for the pipe
   }
 }

@@ -1,25 +1,28 @@
 <div>
-    ID: <input #id>
+    ID: <input [(ngModel)]="tempId">
 </div>
 <div>
-    Title: <input #title>
+    Title: <input [(ngModel)]="newContent.title">
 </div>
 
 <div>
-    Image: <input #imgURL>
+    Image: <input [(ngModel)]="newContent.imgURL">
 </div>
 <div>
-    description: <input #description>
+    description: <input [(ngModel)]="newContent.description">
 </div>
 <div>
-    Type: <input #type>
+    Type: <input [(ngModel)]="newContent.type">
 </div>
 <div>
-    Creator: <input #creator>
+    Creator: <input [(ngModel)]="newContent.creator">
 </div>
 <div>
-    Tags: <input #tags>
+    Tags: <input [(ngModel)]="tempTags">
 </div>
 <div>
-    <button (click)="addContentFromChild(id.value, title.value, imgURL.value, description.value, type.value, creator.value, tags.value)">Add Food Item</button>
+    <button (click)="addContentFromChild()">Add Food Item</button>
+</div>
+<div class="error" *ngIf="errorMessage">
+    {{ errorMessage }}
 </div>
