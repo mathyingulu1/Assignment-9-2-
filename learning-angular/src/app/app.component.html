@@ -1,4 +1,4 @@
-<app-add-content (newFoodEvent)="addFoodToList($event)"></app-add-content>
+<app-add-content (newFoodEvent)="addFoodToList($event)"  (updateFoodEvent)="updateFoodInList($event)"></app-add-content>
 <!-- <div>
     <h1>Without pipe</h1>
     <app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"

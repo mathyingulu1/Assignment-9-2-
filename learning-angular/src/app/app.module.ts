@@ -8,6 +8,9 @@ import { DefaultTypePipe } from './default-type.pipe';
 import { ContentTaggedPipe } from './content-tagged.pipe';
 import { HighlightDirective } from './highlight.directive';
 import { AddContentComponent } from './add-content/add-content.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./services/in-memory-data.service";
 
 @NgModule({
   declarations: [
@@ -20,7 +23,12 @@ import { AddContentComponent } from './add-content/add-content.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 500
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

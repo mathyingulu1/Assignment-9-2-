@@ -1,5 +1,5 @@
 <div>
-    id: <input #id>
+    id (ONLY FOR UDPATING): <input #id>
 </div>
 <div>
     name: <input #name>
@@ -15,5 +15,6 @@
     tags: <input #tags>
 </div>
 <div>
-    <button (click)="addFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Add Food Item</button>
+    <button (click)="addFood(name.value, imageUrl.value, body.value, tags.value)">Add Food Item</button>
+    <button (click)="updateFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Update Food Item</button>
 </div>

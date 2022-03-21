@@ -1,4 +1,4 @@
-<div *ngIf="foodItem">
+<div *ngIf="foodItem" class="food-{{foodItem?.id}}">
     <div class="type">{{ foodItem | defaultType }}</div>
     <div appHighlight colour='magenta' class="body">{{ foodItem.body }}</div>
     <div><img [src]="foodItem ? foodItem.imageUrl : ''"></div>

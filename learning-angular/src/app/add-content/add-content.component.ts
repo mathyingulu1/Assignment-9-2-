@@ -8,6 +8,7 @@ import { Food } from '../../helper-files/Food';
 })
 export class AddContentComponent implements OnInit {
   @Output() newFoodEvent: EventEmitter<Food> = new EventEmitter<Food>();
+  @Output() updateFoodEvent: EventEmitter<Food> = new EventEmitter<Food>();
   newFood?: Food;
 
   constructor() { }
@@ -15,7 +16,17 @@ export class AddContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addFood(id: string, name: string, imageUrl: string, body: string, tags: string): void {
+  addFood(name: string, imageUrl: string, body: string, tags: string): void {
+    this.newFood = {
+      // id: parseInt(id),
+      name: name,
+      imageUrl: imageUrl,
+      body: body,
+      tags: tags.split(",")
+    };
+    this.newFoodEvent.emit(this.newFood);
+  }
+  updateFood(id: string, name: string, imageUrl: string, body: string, tags: string): void {
     this.newFood = {
       id: parseInt(id),
       name: name,
@@ -23,7 +34,7 @@ export class AddContentComponent implements OnInit {
       body: body,
       tags: tags.split(",")
     };
-    this.newFoodEvent.emit(this.newFood);
+    this.updateFoodEvent.emit(this.newFood);
   }
 
 }
