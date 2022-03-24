@@ -1,1 +1,9 @@
+<div>
+    <label>Select an id number to display: <input type="number" #id></label>
+    <button (click)="displayMovieItem(id.value)">Display Movie</button>
+</div>
+<app-content-card [movie]="someMovie" class="single-item-on-app-component"></app-content-card>
+
 <app-content-list></app-content-list>
+
+<app-messages></app-messages>

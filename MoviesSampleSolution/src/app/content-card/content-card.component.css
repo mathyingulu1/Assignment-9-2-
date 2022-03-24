@@ -1,38 +1,41 @@
-:host{
-    border: 1px solid #0000ff;
-    display: block;
-    margin: 16px auto;
-    padding: 8px;
-    width: 500px;
-    text-align: center;
+:host {
+  border: 1px solid #0000ff;
+  display: block;
+  margin: 16px auto;
+  padding: 8px;
+  width: 500px;
+  text-align: center;
 }
-:host.first-movie{
-    border: 2px solid #000;
+:host.first-movie {
+  border: 6px solid #000;
 }
-:host.notype{
+:host.notype {
   background-color: darksalmon;
 }
-:host.drama{
+:host.drama {
   background-color: dodgerblue;
 }
-:host.sci-fi{
+:host.sci-fi {
   background-color: chartreuse;
 }
-:host.cartoon{
+:host.cartoon {
   background-color: grey;
 }
-:host.found{
+:host.found {
   border-color: green;
   border-width: 5px;
 }
-.image{
-    width: 300px;
+:host.single-item-on-app-component {
+  box-shadow: 5px 10px #88888899;
 }
-.tag{
-    display: inline-block;
-    border-radius: 10px;
-    border: 1px solid #ff0000;
-    background-color:aqua;
-    margin: 8px;
-    padding: 8px;
+.image {
+  width: 300px;
+}
+.tag {
+  display: inline-block;
+  border-radius: 10px;
+  border: 1px solid #ff0000;
+  background-color: aqua;
+  margin: 8px;
+  padding: 8px;
 }
