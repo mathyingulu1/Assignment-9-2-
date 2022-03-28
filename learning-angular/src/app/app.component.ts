@@ -25,6 +25,9 @@ export class AppComponent implements OnInit {
     this.getFoodFromServer();
   }
 
+  clickEvent(): void{
+    
+  }
   getFoodFromServer(): void{
     this.foodService.getContent().subscribe(foodArray => this.bunchOfFood = foodArray);
   }

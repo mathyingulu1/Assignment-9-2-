@@ -5,6 +5,13 @@
         [class.is-last]="isLast"></app-content-card>
 </div> -->
 
+<mat-form-field>
+    <input matInput placeholder="hello world" #cardName />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="clickEvent()">
+    Click me for an update!
+  </button>
+  
 <div>
     <h1>With pipe</h1>
     <app-content-card *ngFor="let item of (bunchOfFood | contentTagged); index as i; last as isLast" [foodItem]="item"

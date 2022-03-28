@@ -1,34 +1,22 @@
-:host{
-    display: block;
-    width: 400px;
-    margin: 16px auto;
-
-    .type{
-        color: #ff0000;
-    }
-    img{
-        width: 200px;
-    }
-    .tags{
-
-    }
-    .tag{
-        display: inline-block;
-        margin: 8px 16px;
-        padding: 8px;
-        border-radius: 20px;
-        border: 1px dotted #000;
-    }
+:host {
+  display: block;
+  width: 400px;
+  margin: 16px auto;
 }
-:host.is-last{
-    background-color:#00ff00;
+:host .type {
+  color: #ff0000;
 }
-// :host{
+:host img {
+  width: 200px;
+}
+:host .tag {
+  display: inline-block;
+  margin: 8px 16px;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px dotted #000;
+}
 
-// }
-// :host .type{
-//     color:#ff0000;
-// }
-// :host img{
-
-// }
+:host.is-last {
+  background-color: #00ff00;
+}
