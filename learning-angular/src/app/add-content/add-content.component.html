@@ -1,13 +1,15 @@
-<div>
-    id (ONLY FOR UDPATING): <input #id>
-</div>
-<div>
-    name: <input #name>
-</div>
-
-<div>
-    image: <input #imageUrl>
-</div>
+<mat-form-field>
+    <mat-label>ID (ONLY FOR UDPATING)</mat-label>
+    <input matInput placeholder="0" #id>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Banana" #name>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Image URL</mat-label>
+    <input matInput placeholder="https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202201181338" #imageUrl>
+</mat-form-field>
 <div>
     body: <input #body>
 </div>
@@ -15,6 +17,6 @@
     tags: <input #tags>
 </div>
 <div>
-    <button (click)="addFood(name.value, imageUrl.value, body.value, tags.value)">Add Food Item</button>
-    <button (click)="updateFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Update Food Item</button>
+    <button mat-raised-button color="primary" (click)="addFood(name.value, imageUrl.value, body.value, tags.value)">Add Food Item</button>
+    <button mat-raised-button color="accent" (click)="updateFood(id.value, name.value, imageUrl.value, body.value, tags.value)">Update Food Item</button>
 </div>

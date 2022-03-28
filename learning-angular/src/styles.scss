@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-html, body{
-    margin: 0;
-    padding: 0;
-    background-color:#999999;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  // we can set the background to black if we use a dark theme in material
+  //   background-color: #000;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
