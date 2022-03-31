@@ -1,6 +1,12 @@
-import { Content } from "./content-interface";
+import { Injectable } from '@angular/core';
+import { InMemoryDbService } from "angular-in-memory-web-api";
+import { Content } from "../helper-files/content-interface";
 
-export const MOVIELIST: Content[] = [{
+@Injectable({
+  providedIn: 'root'
+})
+export class InMemoryDataService implements InMemoryDbService {
+  MOVIELIST: Content[] = [{
     id: 0,
     title: "Inception",
     description: "A movie in a movie",
@@ -50,3 +56,15 @@ export const MOVIELIST: Content[] = [{
     creator: "Andrés Muschietti",
     imgURL: ""
   }];
+
+  constructor() { }
+
+  createDb() {
+    const movie = this.MOVIELIST
+    return {movie};
+  }
+  genId(movieList: Content[]): number {
+    return movieList.length > 0 ? Math.max(...movieList.map(c =>
+    c.id)) + 1 : 0;
+  }
+}
