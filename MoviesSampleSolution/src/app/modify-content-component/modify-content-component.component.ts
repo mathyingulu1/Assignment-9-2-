@@ -11,6 +11,7 @@ import { MovieServiceService } from '../services/movie-service.service';
 export class ModifyContentComponentComponent implements OnInit {
   @Output() newContentEvent = new EventEmitter<Content>();
   
+  movieListForCheckingValidId: Content[] =[];
   newContent: Content = {
     title: "", description: '', creator: '', type: undefined
   };
@@ -21,17 +22,19 @@ export class ModifyContentComponentComponent implements OnInit {
   constructor(private movieService: MovieServiceService, private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.movieService.getMovieList().subscribe(list => {
+      this.movieListForCheckingValidId = list;
+    });
   }
 
   addContentFromChild(): void {
+    if (this.tempId === "") {
+      this.newContent.tags = this.tempTags.split(';');
+      this.movieService.addContent(this.newContent).subscribe((newContentFromServer) => {
+        this.messageService.add("Movie successfully added to the server!");
+        this.newContentEvent.emit(newContentFromServer);
+      });
 
-    this.newContent.tags = this.tempTags.split(';');
-    this.movieService.addContent(this.newContent).subscribe((newContentFromServer) => {
-      this.messageService.add("Movie successfully added to the server!");
-      this.newContentEvent.emit(newContentFromServer);
-    });
-
-      // this.newContent.id = parseInt(this.tempId);
       // this.newContentEvent.emit(this.newContent);
       this.newContent = {
         title: "", description: '', creator: '', type: undefined
@@ -39,5 +42,29 @@ export class ModifyContentComponentComponent implements OnInit {
       this.tempId = "";
       this.tempTags = ""
       // this.errorMessage = "";
+    }
+    else {
+      this.newContent.id = parseInt(this.tempId);
+      if (this.newContent.id !== undefined
+        && this.movieListForCheckingValidId.some(movie => movie.id === this.newContent.id)) {
+          this.newContent.tags = this.tempTags.split(';');
+          this.movieService.updateContent(this.newContent).subscribe(() => {
+            this.messageService.add("Movie successfully updated on the server!");
+            this.newContentEvent.emit(this.newContent);
+          });
+    
+          // this.newContentEvent.emit(this.newContent);
+          this.newContent = {
+            title: "", description: '', creator: '', type: undefined
+          };
+          this.tempId = "";
+          this.tempTags = ""
+          // this.errorMessage = "";
+    
+
+      }
+      
+    }
+
   }
 }

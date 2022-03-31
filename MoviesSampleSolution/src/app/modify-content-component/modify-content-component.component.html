@@ -1,6 +1,6 @@
-<!-- <div>
+<div>
     ID: <input [(ngModel)]="tempId">
-</div> -->
+</div>
 <div>
     Title: <input [(ngModel)]="newContent.title">
 </div>
@@ -21,7 +21,7 @@
     Tags: <input [(ngModel)]="tempTags">
 </div>
 <div>
-    <button (click)="addContentFromChild()">Add New Movie</button>
+    <button (click)="addContentFromChild()">{{tempId === "" ? "Add New Movie" : "Update existing movie"}}</button>
 </div>
 <!-- <div class="error" *ngIf="errorMessage">
     {{ errorMessage }}

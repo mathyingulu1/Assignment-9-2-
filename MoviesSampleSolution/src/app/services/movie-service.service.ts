@@ -19,6 +19,10 @@ export class MovieServiceService {
     return this.http.post<Content>("api/movie", newMovie, this.httpOptions);
   }
 
+  updateContent(oldMovie: Content): Observable<any>{
+    return this.http.put("api/movie", oldMovie, this.httpOptions);
+    }
+
   getMovieList(): Observable<Content[]> {
     this.messageService.add("Content array loaded!");
     return this.http.get<Content[]>("api/movie");
