@@ -32,7 +32,12 @@ export class ContentListComponent implements OnInit {
       this.searchFlag = false;
     }
   }
-  donothing() {
+  addContentToList(newContentItem: Content): void {
+    // this.movieList.push(newContentItem);
+    // this.movieList = [...this.movieList];
 
+    this.movieService.getMovieList().subscribe(list => {
+      this.movieList = list;
+    });
   }
 }

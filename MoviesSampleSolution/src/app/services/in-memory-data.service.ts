@@ -65,6 +65,6 @@ export class InMemoryDataService implements InMemoryDbService {
   }
   genId(movieList: Content[]): number {
     return movieList.length > 0 ? Math.max(...movieList.map(c =>
-    c.id)) + 1 : 0;
+    c.id ?? 0)) + 1 : 0;
   }
 }

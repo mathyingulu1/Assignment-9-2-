@@ -7,8 +7,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class MovieServiceService {
-
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type':
+    'application/json' })
+  };
+  
   constructor(private messageService: MessageService, private http: HttpClient) { }
+
+  addContent(newMovie: Content): Observable<Content>{
+    this.messageService.add("Going to add movie to the server!");
+    return this.http.post<Content>("api/movie", newMovie, this.httpOptions);
+  }
 
   getMovieList(): Observable<Content[]> {
     this.messageService.add("Content array loaded!");
