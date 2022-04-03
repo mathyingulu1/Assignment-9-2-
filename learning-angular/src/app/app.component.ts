@@ -26,10 +26,13 @@ export class AppComponent implements OnInit {
   }
 
   clickEvent(): void{
-    
+
   }
   getFoodFromServer(): void{
-    this.foodService.getContent().subscribe(foodArray => this.bunchOfFood = foodArray);
+    this.foodService.getContent().subscribe(foodArray => {
+      console.log(foodArray);
+      this.bunchOfFood = foodArray
+    });
   }
   updatePage(cardNameOnTheTypescriptSide: string): void {
     console.log("We did it, ", cardNameOnTheTypescriptSide);
