@@ -1,9 +1,30 @@
 .no-margin-left{
     margin-left: 0 !important;
 }
-
 a.active{
   font-weight: bold;
   color: red;
   font-size: 20px;
+}
+.side-nav{
+  border-bottom: 5px solid dodgerblue;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #999;
+
+  a {
+    display: inline-block;
+    padding: 8px;
+    border: 1px dashed #555;
+    margin: 0 8px;
+    width: calc(25vw - 16px);
+    box-sizing: border-box;
+    height: 100%;
+  }
+  a:first-child{
+    margin-left: 0;
+  }
+  a:last-child{
+    margin-right: 0;
+  }
 }

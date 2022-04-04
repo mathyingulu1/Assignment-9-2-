@@ -23,14 +23,6 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ContentCardComponent,
-    DefaultTypePipe,
-    ContentTaggedPipe,
-    HighlightDirective,
-    AddContentComponent,
-    ContentListComponent,
-    ContentDetailComponent,
-    PageNotFoundComponent,
     HomeComponent
   ],
   imports: [

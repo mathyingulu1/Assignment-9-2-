@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Food } from '../../helper-files/Food';
+import { FoodService } from '../services/food.service';
 
 @Component({
   selector: 'app-content-detail',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentDetailComponent implements OnInit {
 
-  constructor() { }
+  id?: number;
+  foodItem?: Food;
+  constructor(private route: ActivatedRoute, private foodService: FoodService) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.id = Number(params.get('id') ?? "0"); // uses the + unary operator
+      this.foodService.getContentItem(this.id).subscribe(
+        (c) => {
+          this.foodItem = c;
+        });
+    });
   }
 
 }

@@ -19,6 +19,10 @@ export class FoodService {
     console.log("Getting the list");
     return this.http.get<Food[]>("api/food");
   }
+  getContentItem(id: number): Observable<Food>{
+    console.log("Retrieving OBSERVABLE content item");
+    return this.http.get<Food>("api/food/" + id);
+  }
   addContent(newContentItem: Food): Observable<Food>{
     console.log("added the new content: ", newContentItem);
     return this.http.post<Food>("api/food", newContentItem, this.httpOptions);
