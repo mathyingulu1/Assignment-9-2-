@@ -14,6 +14,9 @@ import { InMemoryDataService } from "./services/in-memory-data.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { AppRoutingModule } from './app-routing.module';
+import { ContentListComponent } from './content-list/content-list.component';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MatInputModule } from '@angular/material/input';
     DefaultTypePipe,
     ContentTaggedPipe,
     HighlightDirective,
-    AddContentComponent
+    AddContentComponent,
+    ContentListComponent,
+    ContentDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +39,8 @@ import { MatInputModule } from '@angular/material/input';
     }),
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    AppRoutingModule
   ],
   providers: [],
   entryComponents: [],

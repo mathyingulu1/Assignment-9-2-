@@ -1,0 +1,10 @@
+<app-add-content (newFoodEvent)="addFoodToList($event)"  (updateFoodEvent)="updateFoodInList($event)"></app-add-content>
+
+<div>
+  <h1>With pipe</h1>
+  <app-content-card *ngFor="let item of (bunchOfFood | contentTagged); index as i; last as isLast" [foodItem]="item"
+      [class.is-last]="isLast"></app-content-card>
+</div>
+<!-- DO NOT DO IT THIS WAY LISTED BELOW -->
+<!-- <app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
+  [foodList]="bunchOfFood" [class.is-last]="isLast"></app-content-card> -->
