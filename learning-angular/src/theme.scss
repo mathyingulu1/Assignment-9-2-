@@ -1,3 +1,4 @@
+// Not using this file because of the stackblitz bug
 @use "@angular/material" as mat;
 @include mat.core();
 $my-primary: mat.define-palette(mat.$indigo-palette, 500);
