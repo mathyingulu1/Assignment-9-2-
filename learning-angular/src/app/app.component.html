@@ -1,19 +1,23 @@
 <div class="side-nav">
-  <a routerLink="" routerLinkActive="active">
+  <!-- routerLinkActiveOptions takes an object in where you can tell it to only apply the active class if we're on exactly the home page -->
+  <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
     Home Page
   </a>
   <a routerLink="content" routerLinkActive="active">
     Content List
   </a>
-  <a routerLink="content/42" routerLinkActive="active">
-    The answer to the universe and everything
-  </a>
+  <div class="side-nav-child">
+    <a routerLink="content/42" routerLinkActive="active">
+      The answer to the universe and everything
+    </a>
+  </div>
   <a routerLink="pagewillnotbefound" routerLinkActive="active">
     Invalid page link
   </a>
 </div>
-<router-outlet></router-outlet>
-
+<div id="content-wrapper">
+  <router-outlet></router-outlet>
+</div>
 <!-- <div>
     <h1>Without pipe</h1>
     <app-content-card *ngFor="let item of bunchOfFood; index as i; last as isLast" [foodItem]="item"
