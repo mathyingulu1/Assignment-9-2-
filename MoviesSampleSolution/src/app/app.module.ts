@@ -10,7 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./services/in-memory-data.service";
-import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
+import { DialogOverviewExampleDialog, ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MatBadgeModule } from '@angular/material/badge';
     ContentTypeFilterPipe,
     HoverAffectDirective,
     MessagesComponent,
-    ModifyContentComponentComponent
+    ModifyContentComponentComponent,
+    DialogOverviewExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -45,9 +47,11 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatCardModule,
     MatDividerModule,
     MatChipsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule
   ],
   providers: [],
+  // entryComponents: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

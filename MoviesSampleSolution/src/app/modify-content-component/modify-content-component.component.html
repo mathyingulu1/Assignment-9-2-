@@ -1,31 +1,7 @@
-<div>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>ID</mat-label>
-    <input matInput [(ngModel)]="tempId">
-  </mat-form-field>
-</div>
-<div>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Title</mat-label>
-    <input matInput [(ngModel)]="newContent.title">
-  </mat-form-field>
-</div>
+<button mat-raised-button color="warn" (click)="openDialog()">Add New Content</button>
 
-<div>
-  Image: <input [(ngModel)]="newContent.imgURL">
-</div>
-<div>
-  description: <input [(ngModel)]="newContent.description">
-</div>
-<div>
-  Type: <input [(ngModel)]="newContent.type">
-</div>
-<div>
-  Creator: <input [(ngModel)]="newContent.creator">
-</div>
-<div>
-  Tags: <input [(ngModel)]="tempTags">
-</div>
+
+
 <div>
   <button (click)="addContentFromChild()">{{tempId === "" ? "Add New Movie" : "Update existing movie"}}</button>
 </div>

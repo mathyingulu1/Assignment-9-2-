@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Add Movie</h1>
+<div mat-dialog-content>
+  <div>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>ID</mat-label>
+      <input matInput [(ngModel)]="tempId" disabled="disabled">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+  </div>
+
+  <div>
+    Image: <input [(ngModel)]="data.imgURL">
+  </div>
+  <div>
+    description: <input [(ngModel)]="data.description">
+  </div>
+  <div>
+    Type: <input [(ngModel)]="data.type">
+  </div>
+  <div>
+    Creator: <input [(ngModel)]="data.creator">
+  </div>
+  <div>
+    Tags: <input [(ngModel)]="tempTags">
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <!-- <button mat-button (click)="sendDataUp()" cdkFocusInitial>Ok</button> -->
+  <button mat-button [mat-dialog-close]="{ newContent: data, tempTags: tempTags }" cdkFocusInitial>Ok</button>
+</div>
