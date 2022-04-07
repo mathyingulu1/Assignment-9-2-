@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Content } from '../helper-files/content-interface';
 import { MessageService } from '../services/message.service';
@@ -16,9 +16,8 @@ export interface DialogData {
 })
 export class ModifyContentComponentComponent implements OnInit {
   @Output() newContentEvent = new EventEmitter<Content>();
-
   movieListForCheckingValidId: Content[] = [];
-  newContent: Content = {
+  @Input() newContent: Content = {
     title: "", description: '', creator: '', type: undefined
   };
   tempId: string = "";
@@ -34,6 +33,7 @@ export class ModifyContentComponentComponent implements OnInit {
   }
 
   openDialog(): void {
+
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '400px',
       data: this.newContent,
@@ -103,7 +103,12 @@ export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Content,
-  ) { }
+  ) {
+    this.tempId = data.id + "";
+    if (data.tags) {
+      this.tempTags = data.tags.join(";");
+    }
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
