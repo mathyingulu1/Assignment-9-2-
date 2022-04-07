@@ -1,22 +1,49 @@
-<h3 class="title">
-    {{ movie?.title }}
+<mat-card>
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>{{ movie?.title }} - {{ movie?.creator }}</mat-card-title>
+    <mat-card-subtitle appHoverAffect elementType="type" *ngIf="movie?.type" class="movie?.type">
+      {{ movie?.type }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image (click)="imageClicked()" *ngIf="movie?.imgURL" class="image" [src]="movie?.imgURL">
+  <img mat-card-image (click)="imageClicked()" *ngIf="!movie?.imgURL" class="image"
+    src="https://cdn.freebiesupply.com/images/thumbs/2x/imdb-logo.png"> <!-- default image -->
+  <mat-card-content>
+    <p>
+      {{ movie?.description }}
+    </p>
+    <mat-chip-list aria-label="Tags of the content" *ngIf="movie?.tags">
+      <mat-chip appHoverAffect elementType="tag" *ngFor="let tag of movie?.tags">
+        #{{ tag }}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+  <!-- <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions> -->
+</mat-card>
+
+<!-- <h3 class="title">
+  {{ movie?.title }}
 </h3>
 <img (click)="imageClicked()" *ngIf="movie?.imgURL" class="image" [src]="movie?.imgURL">
 <img (click)="imageClicked()" *ngIf="!movie?.imgURL" class="image"
-    src="https://cdn.freebiesupply.com/images/thumbs/2x/imdb-logo.png"> <!-- default image -->
+  src="https://cdn.freebiesupply.com/images/thumbs/2x/imdb-logo.png"> default image
 <p>
-    {{ movie?.description }}
+  {{ movie?.description }}
 </p>
 <div class="meta-data">
-    <div class="creator">
-        {{ movie?.creator}}
-    </div>
-    <div appHoverAffect elementType="type" *ngIf="movie?.type" class="movie?.type">
-        {{ movie?.type }}
-    </div>
-    <div class="tags" *ngIf="movie?.tags">
-        <span appHoverAffect elementType="tag" class="tag" *ngFor="let tag of movie?.tags">
-            #{{ tag }}
-        </span>
-    </div>
-</div>
+  <div class="creator">
+    {{ movie?.creator}}
+  </div>
+  <div appHoverAffect elementType="type" *ngIf="movie?.type" class="movie?.type">
+    {{ movie?.type }}
+  </div>
+  <div class="tags" *ngIf="movie?.tags">
+    <span appHoverAffect elementType="tag" class="tag" *ngFor="let tag of movie?.tags">
+      #{{ tag }}
+    </span>
+  </div>
+</div> -->
