@@ -34,7 +34,7 @@ export class ModifyContentComponentComponent implements OnInit {
   openDialog(): void {
 
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '400px',
+      width: '300px',
       data: this.newContent,
     });
 

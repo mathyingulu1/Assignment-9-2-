@@ -9,7 +9,7 @@ import { MovieServiceService } from '../services/movie-service.service';
 })
 export class ContentListComponent implements OnInit {
   searchMessage: string = "";
-  searchFlag: boolean = false;
+  searchFlag?: boolean;
   movieList: Content[];
   constructor(private movieService: MovieServiceService) {
     this.movieList = [];

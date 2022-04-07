@@ -14,25 +14,41 @@
   </div>
 
   <div>
-    Image: <input [(ngModel)]="data.imgURL">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Image</mat-label>
+      <input matInput [(ngModel)]="data.imgURL">
+    </mat-form-field>
   </div>
   <div>
-    description: <input [(ngModel)]="data.description">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Description</mat-label>
+      <input matInput [(ngModel)]="data.description">
+    </mat-form-field>
   </div>
   <div>
-    Type: <input [(ngModel)]="data.type">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Type</mat-label>
+      <input matInput [(ngModel)]="data.type">
+    </mat-form-field>
   </div>
   <div>
-    Creator: <input [(ngModel)]="data.creator">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Creator</mat-label>
+      <input matInput [(ngModel)]="data.creator">
+    </mat-form-field>
   </div>
   <div>
-    Tags: <input [(ngModel)]="tempTags">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Tags</mat-label>
+      <input matInput [(ngModel)]="tempTags">
+    </mat-form-field>
   </div>
 </div>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <!-- <button mat-button (click)="sendDataUp()" cdkFocusInitial>Ok</button> -->
-  <button mat-button [mat-dialog-close]="{ newContent: data, tempTags: tempTags }" cdkFocusInitial>{{ data.id ? "Update
-    Content" : "Add New Content"}}</button>
+  <button mat-button [mat-dialog-close]="{ newContent: data, tempTags: tempTags }" cdkFocusInitial>
+    {{ data.id != undefined && data.id != null ? "Update Content" : "Add New Content"}}
+  </button>
 </div>

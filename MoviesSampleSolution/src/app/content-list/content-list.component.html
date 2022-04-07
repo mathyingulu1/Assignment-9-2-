@@ -5,9 +5,9 @@
     <mat-label>Search</mat-label>
     <input matInput #search>
   </mat-form-field>
-  <button (click)="checkForTitle(search.value)">Check For Title</button>
-  <h4 class="success" *ngIf="searchFlag">Title found</h4>
-  <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
+  <button mat-flat-button color="primary" (click)="checkForTitle(search.value)">Check For Title</button>
+  <h4 class="success" *ngIf="searchFlag === true">Title found</h4>
+  <h4 class="fail" *ngIf="searchFlag === false">Title not found</h4>
   <!--  <div [class.success]="searchFlag" [class.fail]="!searchFlag"> {{ searchMessage }} </div>-->
 </div>
 
