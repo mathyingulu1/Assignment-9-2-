@@ -1,5 +1,6 @@
-<button mat-raised-button color="warn" (click)="openDialog()">{{newContent.id ? "Update Content" : "Add New
-  Content"}}</button>
+<button mat-raised-button color="warn" (click)="openDialog()">
+  {{newContent.id != undefined && newContent.id != null ? "Update Content" : "Add New Content"}}
+</button>
 
 
 
