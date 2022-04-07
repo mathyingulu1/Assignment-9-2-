@@ -27,9 +27,8 @@ export class ModifyContentComponentComponent implements OnInit {
   constructor(public dialog: MatDialog, private movieService: MovieServiceService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.movieService.getMovieList().subscribe(list => {
-      this.movieListForCheckingValidId = list;
-    });
+
+    // moved the getContent out of here because we only need it if we modify something
   }
 
   openDialog(): void {
@@ -67,23 +66,29 @@ export class ModifyContentComponentComponent implements OnInit {
     }
     else {
       this.newContent.id = parseInt(this.tempId);
-      if (this.newContent.id !== undefined
-        && this.movieListForCheckingValidId.some(movie => movie.id === this.newContent.id)) {
-        this.newContent.tags = this.tempTags.split(';');
-        this.movieService.updateContent(this.newContent).subscribe(() => {
-          this.messageService.add("Movie successfully updated on the server!");
-          this.newContentEvent.emit(this.newContent);
+      if (this.newContent.id !== undefined) {
+        // only get content list from the server if we need to validate against it
+        this.movieService.getMovieList().subscribe(list => {
+          this.movieListForCheckingValidId = list;
+
+
+          if (this.movieListForCheckingValidId.some(movie => movie.id === this.newContent.id)) {
+            this.newContent.tags = this.tempTags.split(';');
+            this.movieService.updateContent(this.newContent).subscribe(() => {
+              this.messageService.add("Movie successfully updated on the server!");
+              this.newContentEvent.emit(this.newContent);
+            });
+
+            // this.newContentEvent.emit(this.newContent);
+            this.newContent = {
+              title: "", description: '', creator: '', type: undefined
+            };
+            this.tempId = "";
+            this.tempTags = ""
+            // this.errorMessage = "";
+          }
+
         });
-
-        // this.newContentEvent.emit(this.newContent);
-        this.newContent = {
-          title: "", description: '', creator: '', type: undefined
-        };
-        this.tempId = "";
-        this.tempTags = ""
-        // this.errorMessage = "";
-
-
       }
 
     }
