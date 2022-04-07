@@ -1,36 +1,49 @@
 :host {
-  border: 1px solid #0000ff;
   display: block;
   margin: 16px auto;
-  padding: 8px;
+  // padding: 8px;
   width: 500px;
   text-align: center;
+
+  mat-card {
+    border: 1px solid #0000ff;
+
+  }
+
+  &.first-movie mat-card {
+    border: 6px solid #000;
+  }
+
+  &.notype mat-card {
+    background-color: darksalmon;
+  }
+
+  &.drama mat-card {
+    background-color: dodgerblue;
+  }
+
+  &.sci-fi mat-card {
+    background-color: chartreuse;
+  }
+
+  &.cartoon mat-card {
+    background-color: grey;
+  }
+
+  &.found mat-card {
+    border-color: green;
+    border-width: 5px;
+  }
+
+  &.single-item-on-app-component mat-card {
+    box-shadow: 5px 10px #88888899;
+  }
 }
-:host.first-movie {
-  border: 6px solid #000;
-}
-:host.notype {
-  background-color: darksalmon;
-}
-:host.drama {
-  background-color: dodgerblue;
-}
-:host.sci-fi {
-  background-color: chartreuse;
-}
-:host.cartoon {
-  background-color: grey;
-}
-:host.found {
-  border-color: green;
-  border-width: 5px;
-}
-:host.single-item-on-app-component {
-  box-shadow: 5px 10px #88888899;
-}
+
 .image {
   width: 300px;
 }
+
 .tag {
   display: inline-block;
   border-radius: 10px;
