@@ -1,6 +1,9 @@
 <div>
-    <label>Select an id number to display: <input type="number" #id></label>
-    <button (click)="displayMovieItem(id.value)">Display Movie</button>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Select an id number to display</mat-label>
+    <input matInput placeholder="0" type="number" #id>
+  </mat-form-field>
+  <button mat-flat-button (click)="displayMovieItem(id.value)" color="accent">Display Movie</button>
 </div>
 <app-content-card [movie]="someMovie" class="single-item-on-app-component"></app-content-card>
 

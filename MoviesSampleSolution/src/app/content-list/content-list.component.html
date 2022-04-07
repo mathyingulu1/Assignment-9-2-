@@ -1,7 +1,10 @@
 <app-modify-content-component (newContentEvent)="addContentToList($event)"></app-modify-content-component>
 
 <div class="search">
-  <input #search>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput #search>
+  </mat-form-field>
   <button (click)="checkForTitle(search.value)">Check For Title</button>
   <h4 class="success" *ngIf="searchFlag">Title found</h4>
   <h4 class="fail" *ngIf="!searchFlag">Title not found</h4>
